@@ -82,7 +82,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-xl md:text-2xl font-body text-outline max-w-3xl mx-auto leading-relaxed mb-12"
         >
-          Full-Stack Developer | AI/ML Enthusiast | <span className="text-primary">Building intelligent apps with code and data</span>
+          AI Engineer | RAG & Multi-Agent Systems | <span className="text-primary">Building production-ready intelligent applications</span>
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -142,12 +142,12 @@ const About = () => {
           >
             <h2 className="text-4xl font-headline font-bold mb-8">Architecting Intelligence</h2>
             <p className="text-lg font-body text-on-surface-variant leading-relaxed mb-10">
-              Final-year Computer Science student passionate about full-stack development and AI engineering. I build end-to-end applications — from multi-agent systems and RAG pipelines to MERN-stack platforms. Experienced with LangChain, Hugging Face Transformers, and LoRA fine-tuning, and always looking for ways to ship real products that solve real problems.
+              Computer Science Engineering student at JSS Science and Technology University (graduating June 2026), specializing in AI Engineering. I build RAG pipelines, multi-agent AI applications, NLP solutions, and LLM-powered systems — with a MERN-stack foundation that lets me ship end-to-end, production-ready products. Experienced with LangChain, Hugging Face Transformers, and LoRA fine-tuning.
             </p>
             <div className="mb-12">
               <h3 className="text-sm font-headline text-outline uppercase tracking-widest mb-4">Core Competencies</h3>
               <div className="flex flex-wrap gap-3">
-                {['Python', 'JavaScript', 'NLP / ML', 'React', 'Node.js', 'Flutter', 'Full-Stack Dev'].map(skill => (
+                {['Python', 'RAG Pipelines', 'Multi-Agent Systems', 'LangChain', 'NLP / ML', 'React', 'MERN Stack'].map(skill => (
                   <span key={skill} className="px-4 py-2 rounded-full bg-surface-container-high text-primary text-sm font-medium ghost-border">
                     {skill}
                   </span>
@@ -160,7 +160,8 @@ const About = () => {
                 <div className="mt-1.5 w-2 h-2 rounded-full bg-primary ring-4 ring-primary/20 flex-shrink-0" />
                 <div>
                   <h4 className="font-bold">Computer Science & Engineering</h4>
-                  <p className="text-sm text-outline">B.E. · JSS Science and Technology University, Mysuru</p>
+                  <p className="text-sm text-outline">B.E. · JSS Science and Technology University, Mysuru · CGPA 8.1</p>
+                  <p className="text-sm text-outline">Expected graduation: June 2026</p>
                 </div>
               </div>
             </div>
@@ -171,93 +172,28 @@ const About = () => {
   );
 };
 
-const Timeline = () => {
-  const items = [
-    {
-      year: '2026',
-      title: 'Community Members Connect',
-      description: 'Python-based platform to automate networking and resource sharing within technical communities.',
-      color: 'bg-primary'
-    },
-    {
-      year: '2026',
-      title: 'Match My Car',
-      description: 'A digital car showroom built with JavaScript, deployed live on Vercel.',
-      color: 'bg-tertiary'
-    },
-    {
-      year: '2026',
-      title: 'Multilingual Sentiment Analysis',
-      description: 'Sentiment analysis system for multilingual reviews using NLP in Jupyter Notebook.',
-      color: 'bg-primary'
-    },
-    {
-      year: '2025',
-      title: 'Text Topic Analysis',
-      description: 'Topic analysis tool using NLP and ML algorithms to uncover patterns in text data.',
-      color: 'bg-tertiary'
-    },
-    {
-      year: '2025',
-      title: 'IPL',
-      description: 'An HTML-based project exploring IPL cricket data and presentation.',
-      color: 'bg-primary'
-    },
-  ];
-
-  return (
-    <section className="py-32 px-8 bg-surface">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-headline font-bold mb-16 text-center">Project Timeline</h2>
-        <div className="space-y-12 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[1px] before:bg-outline-variant/30">
-          {items.map((item, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.2 }}
-              className="relative pl-12"
-            >
-              <div className={`absolute left-0 top-1.5 w-6 h-6 rounded-full glass-panel ghost-border flex items-center justify-center`}>
-                <div className={`w-2 h-2 rounded-full ${item.color}`} />
-              </div>
-              <div className="glass-panel p-8 rounded-xl ghost-border transition-transform hover:translate-x-2">
-                <span className="text-xs font-headline text-primary uppercase tracking-widest mb-2 block">{item.year}</span>
-                <h3 className="text-xl font-bold">{item.title}</h3>
-                <p className="text-on-surface-variant mt-2 leading-relaxed">{item.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const Projects = () => {
   const projects = [
     {
-      title: 'Match My Car',
-      description: 'A digital car showroom web application for browsing and matching vehicles, deployed live on Vercel.',
-      tags: ['JavaScript', 'Full-Stack', 'Vercel'],
-      image: 'https://picsum.photos/seed/cars/600/400',
-      github: 'https://github.com/adarshm0602/Match-my-Car',
-      demo: 'https://match-my-car.vercel.app'
+      title: 'Community Members Connect',
+      description: 'Built a 3-agent CLI pipeline (Watcher → Matcher → Outreach) that scans community feeds, extracts seeking/offering signals with Groq (Llama), and drafts personalized intro DMs using hybrid TF-IDF pre-filtering and LLM-based matching.',
+      tags: ['Python', 'Groq API', 'Multi-Agent'],
+      image: 'https://picsum.photos/seed/community/600/400',
+      github: 'https://github.com/adarshm0602/Community-Members-Connect-'
+    },
+    {
+      title: 'RAG Evaluation Dataset Builder',
+      description: 'Built a timestamp-grounded RAG evaluation dataset (20 QA pairs, 3 difficulty levels) from ML/DL video transcripts via an automated Python pipeline, with a retrieval harness benchmarking multilingual embeddings using Hit@K and MRR over 123 chunks.',
+      tags: ['Python', 'RAG', 'Evaluation'],
+      image: 'https://picsum.photos/seed/rag/600/400',
+      github: 'https://github.com/adarshm0602/Golden-Dataset-for-Evaluating-RAG-'
     },
     {
       title: 'Multilingual Sentiment Analysis',
-      description: 'Sentiment analysis system for processing reviews across multiple languages using NLP techniques in Jupyter Notebook.',
-      tags: ['Python', 'Jupyter', 'NLP'],
+      description: 'Built a 4-stage NLP pipeline (language detection → Kannada transliteration → neural translation → DistilBERT sentiment) to classify reviews across Kannada script, Romanized Kannada, and English, with an interactive Streamlit demo.',
+      tags: ['Python', 'NLP', 'Streamlit'],
       image: 'https://picsum.photos/seed/nlp/600/400',
       github: 'https://github.com/adarshm0602/Multilingual-sentiment-analysis-of-reviews.-'
-    },
-    {
-      title: 'Community Members Connect',
-      description: 'Python-powered platform that automates networking and resource sharing within technical communities.',
-      tags: ['Python', 'Automation'],
-      image: 'https://picsum.photos/seed/community/600/400',
-      github: 'https://github.com/adarshm0602/Community-Members-Connect-'
     },
     {
       title: 'Text Topic Analysis',
@@ -267,11 +203,20 @@ const Projects = () => {
       github: 'https://github.com/adarshm0602/Text-topic-analysis'
     },
     {
-      title: 'IPL',
-      description: 'An HTML-based project exploring and presenting IPL cricket data.',
-      tags: ['HTML'],
+      title: 'Match My Car',
+      description: 'Full-stack car discovery platform with user authentication, filtering, and responsive UI; deployed frontend on Vercel and backend on Render.',
+      tags: ['MERN', 'Full-Stack', 'Vercel'],
+      image: 'https://picsum.photos/seed/cars/600/400',
+      github: 'https://github.com/adarshm0602/Match-my-Car',
+      demo: 'https://match-my-car.vercel.app'
+    },
+    {
+      title: 'Cricket Score Predictor',
+      description: 'Developed a web app to predict IPL match scores using historical match data and a Random Forest regression model, deployed with Flask on Render.',
+      tags: ['Python', 'Random Forest', 'Flask'],
       image: 'https://picsum.photos/seed/cricket/600/400',
-      github: 'https://github.com/adarshm0602/IPL'
+      github: 'https://github.com/adarshm0602/IPL',
+      demo: 'https://ipl-ur6z.onrender.com/'
     },
   ];
 
@@ -396,7 +341,7 @@ const Contact = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary/5 rounded-full blur-[150px]" />
       <div className="max-w-3xl mx-auto relative z-10 text-center">
         <h2 className="text-4xl font-headline font-bold mb-4">Get In Touch</h2>
-        <p className="text-outline mb-16">Open for collaborations, internships, and full-stack or AI engineering roles.</p>
+        <p className="text-outline mb-16">Open for AI engineering internships and roles — with end-to-end product delivery experience.</p>
         <div className="flex flex-col sm:flex-row justify-center gap-6">
           {links.map((link, idx) => (
             <motion.a
@@ -446,7 +391,6 @@ export default function App() {
       <Navbar />
       <Hero />
       <About />
-      <Timeline />
       <Projects />
       <Skills />
       <Contact />
