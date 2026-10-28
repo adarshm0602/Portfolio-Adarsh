@@ -84,7 +84,7 @@ const Hero = () => {
         >
           Software & AI Engineer · <span className="text-primary">Python, FastAPI, RAG & LLM applications</span>
         </motion.p>
-        <p className="text-on-surface-variant mb-4 max-w-2xl mx-auto">Associate Forward Deployed Engineer intern at 1 Hat, building the Raya triage-engine prototype.</p>
+        <p className="text-on-surface-variant mb-4 max-w-2xl mx-auto">Associate Forward Deployed Engineer intern at 1 Hat, building the Triage Engine prototype.</p>
         <p className="text-sm text-primary mb-10">Open to full-time software and AI roles · Bangalore or remote</p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -119,7 +119,7 @@ const Experience = () => (
       <p className="text-primary text-sm uppercase tracking-widest mb-4">Professional experience</p>
       <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-4 mb-10">
         <div>
-          <h2 className="text-4xl font-headline font-bold mb-3">Building Raya at 1 Hat</h2>
+          <h2 className="text-4xl font-headline font-bold mb-3">Building Triage Engine at 1 Hat</h2>
           <p className="text-on-surface-variant">Associate Forward Deployed Engineer · Internship</p>
         </div>
         <p className="text-sm text-outline">August 2026 – Present · Scheduled through 31 October 2026</p>
@@ -127,7 +127,7 @@ const Experience = () => (
       <div className="grid md:grid-cols-5 gap-8">
         <div className="md:col-span-3 glass-panel ghost-border rounded-2xl p-8">
           <h3 className="text-2xl font-headline font-bold mb-5">A triage-engine prototype</h3>
-          <p className="text-on-surface-variant leading-relaxed mb-6">Raya combines symptom pathways, LLM-based extraction and follow-up questions in a Python/FastAPI backend. My work spans the engine, persistence, testing and kiosk integration contracts.</p>
+          <p className="text-on-surface-variant leading-relaxed mb-6">Triage Engine combines symptom pathways, LLM-based extraction and follow-up questions in a Python/FastAPI backend. My work spans the engine, persistence, testing and kiosk integration contracts.</p>
           <ul className="space-y-4 text-on-surface-variant leading-relaxed list-disc pl-5">
             <li>Improved response latency with row-oriented SQLite storage, caching and deterministic handling of simple answers.</li>
             <li>Fixed handling of uncertain and numeric answers, preserving answer evidence and reducing repeated questions.</li>
@@ -182,7 +182,7 @@ const About = () => {
           >
             <h2 className="text-4xl font-headline font-bold mb-8">About Me</h2>
             <p className="text-lg font-body text-on-surface-variant leading-relaxed mb-10">
-              I graduated from JSS Science and Technology University in June 2026 with a B.E. in Computer Science. During my Associate Forward Deployed Engineer internship at 1 Hat, I have been developing Raya, a triage-engine prototype built with Python, FastAPI, LLM extraction and SQLite. My work focuses on response latency, answer handling, regression testing and integration. I also build RAG evaluation tools, multi-agent applications and full-stack web projects.
+              I graduated from JSS Science and Technology University in June 2026 with a B.E. in Computer Science. During my Associate Forward Deployed Engineer internship at 1 Hat, I have been developing Triage Engine, a prototype built with Python, FastAPI, LLM extraction and SQLite. My work focuses on response latency, answer handling, regression testing and integration. I also build RAG evaluation tools, multi-agent applications and full-stack web projects.
             </p>
             <div className="mb-12">
               <h3 className="text-sm font-headline text-outline uppercase tracking-widest mb-4">Core Competencies</h3>
