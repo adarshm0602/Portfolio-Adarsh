@@ -30,8 +30,8 @@ const Navbar = () => {
         <div className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary-container font-headline tracking-tight uppercase">
           Adarsh.dev
         </div>
-        <div className="hidden md:flex items-center gap-10 font-headline tracking-tight uppercase text-sm">
-          {['Work', 'Tech', 'Path', 'Contact'].map((item) => (
+        <div className="hidden md:flex items-center gap-6 font-headline tracking-tight uppercase text-sm">
+          {['Work', 'Experience', 'Tech', 'Path', 'Contact'].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -41,7 +41,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="https://docs.google.com/document/d/1byE-KHmjBNu5j5YWVGncCfBKIT70YSEc/edit?usp=drive_link&ouid=118005030912405614150&rtpof=true&sd=true"
+            href="/Adarsh-M-Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="text-outline font-medium hover:text-primary transition-colors"
@@ -50,8 +50,8 @@ const Navbar = () => {
           </a>
         </div>
         <div className="flex items-center gap-4 text-primary">
-          <Terminal size={20} className="cursor-pointer hover:scale-110 transition-transform" />
-          <Code size={20} className="cursor-pointer hover:scale-110 transition-transform" />
+          <a href="/Adarsh-M-Resume.pdf" target="_blank" rel="noopener noreferrer" className="md:hidden text-sm font-semibold">Resume ↗</a>
+          <a href="https://github.com/adarshm0602" target="_blank" rel="noopener noreferrer" aria-label="Adarsh on GitHub"><Github size={20} /></a>
         </div>
       </div>
     </nav>
@@ -82,8 +82,10 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-xl md:text-2xl font-body text-outline max-w-3xl mx-auto leading-relaxed mb-12"
         >
-          AI Engineer | RAG & Multi-Agent Systems | <span className="text-primary">Building production-ready intelligent applications</span>
+          Software & AI Engineer · <span className="text-primary">Python, FastAPI, RAG & LLM applications</span>
         </motion.p>
+        <p className="text-on-surface-variant mb-4 max-w-2xl mx-auto">Associate Forward Deployed Engineer intern at 1 Hat, building the Raya triage-engine prototype.</p>
+        <p className="text-sm text-primary mb-10">Open to full-time software and AI roles · Bangalore or remote</p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -97,12 +99,13 @@ const Hero = () => {
             View My Work
           </a>
           <a
-            href="https://github.com/adarshm0602"
+            href="/Adarsh-M-Resume.pdf"
+            download
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 glass-panel ghost-border text-primary font-bold rounded-xl transition-all hover:bg-surface-container-highest/60 active:scale-95"
           >
-            GitHub Profile
+            Download Resume
           </a>
         </motion.div>
       </div>
@@ -110,44 +113,81 @@ const Hero = () => {
   );
 };
 
+const Experience = () => (
+  <section id="experience" className="py-24 md:py-32 px-8 bg-surface-container-low">
+    <div className="max-w-7xl mx-auto">
+      <p className="text-primary text-sm uppercase tracking-widest mb-4">Professional experience</p>
+      <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-4 mb-10">
+        <div>
+          <h2 className="text-4xl font-headline font-bold mb-3">Building Raya at 1 Hat</h2>
+          <p className="text-on-surface-variant">Associate Forward Deployed Engineer · Internship</p>
+        </div>
+        <p className="text-sm text-outline">August 2026 – Present · Scheduled through 31 October 2026</p>
+      </div>
+      <div className="grid md:grid-cols-5 gap-8">
+        <div className="md:col-span-3 glass-panel ghost-border rounded-2xl p-8">
+          <h3 className="text-2xl font-headline font-bold mb-5">A triage-engine prototype</h3>
+          <p className="text-on-surface-variant leading-relaxed mb-6">Raya combines symptom pathways, LLM-based extraction and follow-up questions in a Python/FastAPI backend. My work spans the engine, persistence, testing and kiosk integration contracts.</p>
+          <ul className="space-y-4 text-on-surface-variant leading-relaxed list-disc pl-5">
+            <li>Improved response latency with row-oriented SQLite storage, caching and deterministic handling of simple answers.</li>
+            <li>Fixed handling of uncertain and numeric answers, preserving answer evidence and reducing repeated questions.</li>
+            <li>Added regression coverage and checked two live synthetic test journeys to reproduce and verify behavior.</li>
+            <li>Documented integration contracts and reproducible evidence for the kiosk integration layer.</li>
+          </ul>
+          <p className="text-sm text-outline mt-6">Prototype engineering work; these results do not represent clinical validation or release approval.</p>
+        </div>
+        <div className="md:col-span-2 glass-panel ghost-border rounded-2xl p-8">
+          <p className="text-sm text-outline mb-3">Median API response latency</p>
+          <p className="text-5xl font-headline font-bold text-primary mb-2">50% lower</p>
+          <p className="text-on-surface-variant mb-8">17.0 seconds → 8.5 seconds</p>
+          <div className="space-y-5" aria-label="Baseline latency 17 seconds; optimized profile latency 8.5 seconds">
+            <div><div className="flex justify-between text-sm mb-2"><span>Baseline</span><span>17.0s</span></div><div className="h-3 bg-outline/40 rounded-full" /></div>
+            <div><div className="flex justify-between text-sm mb-2"><span>Optimized profile</span><span>8.5s</span></div><div className="h-3 w-1/2 bg-primary rounded-full" /></div>
+          </div>
+          <p className="text-sm text-outline leading-relaxed mt-8">Controlled comparison across 16 synthetic test turns per profile, measuring message-to-next-response API latency.</p>
+          <div className="flex flex-wrap gap-2 mt-6">{['Python', 'FastAPI', 'SQLite', 'LLMs', 'pytest'].map(skill => <span key={skill} className="text-xs px-3 py-1.5 rounded-full bg-surface-container-high text-primary">{skill}</span>)}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const About = () => {
   return (
     <section id="path" className="py-32 px-8 bg-surface-container-lowest">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="md:col-span-5 relative"
           >
-            <div className="rounded-2xl overflow-hidden aspect-square glass-panel ghost-border shadow-2xl">
-              <img 
-                src="https://picsum.photos/seed/adarsh/800/800" 
-                alt="Adarsh M" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <div className="absolute -bottom-6 -right-6 p-6 glass-panel rounded-xl ghost-border shadow-xl hidden lg:block">
-              <p className="font-headline text-2xl font-bold text-primary">02+</p>
-              <p className="text-xs text-outline uppercase tracking-widest">Years of Craft</p>
+            <div className="glass-panel ghost-border rounded-2xl p-8 md:p-10">
+              <Terminal size={32} className="text-primary mb-8" aria-hidden="true" />
+              <p className="text-xs uppercase tracking-widest text-outline mb-4">From learning to building</p>
+              <h3 className="text-3xl font-headline font-bold mb-8">Software with measurable results.</h3>
+              <dl className="space-y-6">
+                <div><dt className="text-sm text-outline">Current experience</dt><dd className="text-lg mt-1">1 Hat · Forward Deployed Engineering</dd></div>
+                <div><dt className="text-sm text-outline">Education</dt><dd className="text-lg mt-1">B.E. Computer Science · Class of 2026</dd></div>
+                <div><dt className="text-sm text-outline">Focus</dt><dd className="text-lg mt-1">Backend systems, applied AI & evaluation</dd></div>
+              </dl>
             </div>
           </motion.div>
           <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-7"
+            className="md:col-span-7 min-w-0"
           >
-            <h2 className="text-4xl font-headline font-bold mb-8">Architecting Intelligence</h2>
+            <h2 className="text-4xl font-headline font-bold mb-8">About Me</h2>
             <p className="text-lg font-body text-on-surface-variant leading-relaxed mb-10">
-              Computer Science Engineering student at JSS Science and Technology University (graduating June 2026), specializing in AI Engineering. I build RAG pipelines, multi-agent AI applications, NLP solutions, and LLM-powered systems — with a MERN-stack foundation that lets me ship end-to-end, production-ready products. Experienced with LangChain, Hugging Face Transformers, and LoRA fine-tuning.
+              I graduated from JSS Science and Technology University in June 2026 with a B.E. in Computer Science. During my Associate Forward Deployed Engineer internship at 1 Hat, I have been developing Raya, a triage-engine prototype built with Python, FastAPI, LLM extraction and SQLite. My work focuses on response latency, answer handling, regression testing and integration. I also build RAG evaluation tools, multi-agent applications and full-stack web projects.
             </p>
             <div className="mb-12">
               <h3 className="text-sm font-headline text-outline uppercase tracking-widest mb-4">Core Competencies</h3>
               <div className="flex flex-wrap gap-3">
-                {['Python', 'RAG Pipelines', 'Multi-Agent Systems', 'LangChain', 'NLP / ML', 'React', 'MERN Stack'].map(skill => (
+                {['Python', 'FastAPI', 'LLM Workflows', 'RAG Evaluation', 'SQLite', 'Regression Testing', 'React'].map(skill => (
                   <span key={skill} className="px-4 py-2 rounded-full bg-surface-container-high text-primary text-sm font-medium ghost-border">
                     {skill}
                   </span>
@@ -161,7 +201,7 @@ const About = () => {
                 <div>
                   <h4 className="font-bold">Computer Science & Engineering</h4>
                   <p className="text-sm text-outline">B.E. · JSS Science and Technology University, Mysuru · CGPA 8.1</p>
-                  <p className="text-sm text-outline">Expected graduation: June 2026</p>
+                  <p className="text-sm text-outline">Graduated: June 2026</p>
                 </div>
               </div>
             </div>
@@ -190,7 +230,7 @@ const Projects = () => {
     },
     {
       title: 'Multilingual Sentiment Analysis',
-      description: 'Built a 4-stage NLP pipeline (language detection → Kannada transliteration → neural translation → DistilBERT sentiment) to classify reviews across Kannada script, Romanized Kannada, and English, with an interactive Streamlit demo.',
+      description: 'Built a multilingual review-analysis application with a Streamlit interface. On 1,154 Kannada reviews, an SVM achieved 83% macro-F1 versus 81% for Naive Bayes using an 80/20 split; a separate 50-review evaluation reached 92% accuracy.',
       tags: ['Python', 'NLP', 'Streamlit'],
       image: 'https://picsum.photos/seed/nlp/600/400',
       github: 'https://github.com/adarshm0602/Multilingual-sentiment-analysis-of-reviews.-'
@@ -225,8 +265,8 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-16">
           <div>
-            <h2 className="text-4xl font-headline font-bold mb-4">Selected Deployments</h2>
-            <p className="text-outline">Coded experiments in AI and Scalability.</p>
+            <h2 className="text-4xl font-headline font-bold mb-4">Selected Projects</h2>
+            <p className="text-outline">Public projects in applied AI, evaluation and full-stack development.</p>
           </div>
           <Hub size={40} className="text-primary/20 hidden md:block" />
         </div>
@@ -288,17 +328,17 @@ const Skills = () => {
     {
       title: 'Web & Full-Stack',
       icon: <Settings size={32} />,
-      skills: ['React', 'Node.js / Express.js', 'MongoDB / MySQL', 'REST APIs']
+      skills: ['FastAPI / Flask', 'React', 'Node.js / Express.js', 'SQLite / MySQL / MongoDB', 'REST APIs']
     },
     {
       title: 'AI / ML / NLP',
       icon: <Cpu size={32} />,
-      skills: ['Scikit-learn', 'NLTK', 'Hugging Face Transformers', 'LangChain', 'RAG Pipelines', 'LoRA Fine-tuning']
+      skills: ['Scikit-learn', 'NLTK', 'Hugging Face Transformers', 'LangChain', 'RAG Evaluation (Hit@K / MRR)', 'LLM Extraction']
     },
     {
       title: 'Tools & Platforms',
       icon: <Database size={32} />,
-      skills: ['Git / GitHub', 'Vercel / Render', 'AWS (S3, EC2)', 'Streamlit', 'ComfyUI / Flux']
+      skills: ['Git / GitHub', 'pytest / Regression Testing', 'Vercel / Render', 'Streamlit']
     }
   ];
 
@@ -341,7 +381,7 @@ const Contact = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary/5 rounded-full blur-[150px]" />
       <div className="max-w-3xl mx-auto relative z-10 text-center">
         <h2 className="text-4xl font-headline font-bold mb-4">Get In Touch</h2>
-        <p className="text-outline mb-16">Open for AI engineering internships and roles — with end-to-end product delivery experience.</p>
+        <p className="text-outline mb-16">Open to full-time software engineering, AI engineering and forward deployed engineering roles in Bangalore or remote. Available to join within one week.</p>
         <div className="flex flex-col sm:flex-row justify-center gap-6">
           {links.map((link, idx) => (
             <motion.a
@@ -353,7 +393,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="flex items-center justify-center gap-3 px-8 py-5 glass-panel rounded-xl ghost-border text-on-surface hover:text-primary hover:border-primary/30 transition-all"
+              className="flex items-center justify-center gap-3 px-4 sm:px-8 py-5 glass-panel rounded-xl ghost-border text-on-surface hover:text-primary hover:border-primary/30 transition-all"
             >
               {link.icon}
               <span className="font-medium">{link.label}</span>
@@ -387,9 +427,10 @@ const Footer = () => {
 
 export default function App() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-clip">
       <Navbar />
       <Hero />
+      <Experience />
       <About />
       <Projects />
       <Skills />
